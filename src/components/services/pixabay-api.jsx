@@ -1,6 +1,5 @@
-import axios from 'axios';
-
-const key = '20677426-5a1c43fc209aed266a44605e2';
+import axios from "axios";
+const key = '30848188-838038a8b40bb43baa3f98f48';
 
 const fetchImg = (searchQuery = '', currentPage = 1) => {
   return axios
@@ -10,4 +9,4 @@ const fetchImg = (searchQuery = '', currentPage = 1) => {
     .then(response => response.data.hits);
 };
 
-export default fetchImg;
+export default  fetchImg ;
