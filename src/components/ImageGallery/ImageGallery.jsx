@@ -1,6 +1,6 @@
 import ImageGalleryItem from 'components/ImageGalleryItem/ImageGalleryItem';
+import s from './ImageGallery.module.css'
 import PropTypes from 'prop-types';
-import '../styles.css';
 
 const ImageGallery = ({ errorMsg, images, onClick, toogleModal }) => {
   const handleClick = e => {
@@ -9,8 +9,8 @@ const ImageGallery = ({ errorMsg, images, onClick, toogleModal }) => {
 
   return (
     <div>
-      {errorMsg && <p className="error">{errorMsg}</p>}
-      <ul className="ImageGallery" onClick={handleClick}>
+      {errorMsg && <p className={s.error}>{errorMsg}</p>}
+      <ul className={s.ImageGallery} onClick={handleClick}>
         {images.map(el => (
           <ImageGalleryItem key={el.id} image={el} onClick={toogleModal} />
         ))}

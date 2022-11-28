@@ -1,11 +1,14 @@
-import {Component} from 'react';
-import api from './services/pixabay-api';
-import Searchbar from './Searchbar/Searchbar';
-import ImageGallery from './ImageGallery/ImageGallery';
-import Modal from './Modal/Modal';
-import Button from './Button/Button';
-import Loader from './Loader/Loader';
-// import './styles.css';
+import { Component } from "react";
+import fetch from './services/FetchImg';
+import Searchbar from "./Searchbar/Searchbar";
+import ImageGallery from "./ImageGallery/ImageGallery";
+import Loader from "./Loader/Loader";
+import Modal from "./Modal/Modal";
+import Button from "./Button/Button";
+
+
+
+
 
 class App extends Component {
   state = {
@@ -27,7 +30,7 @@ class App extends Component {
   fetchImages = () => {
     const { query, currentPage } = this.state;
     this.setState({ isLoading: true });
-    api
+    fetch
       .fetchImg(query, currentPage)
       .then(data => {
         if (data.length > 0) {
@@ -75,7 +78,12 @@ class App extends Component {
     const { isLoading, images, showModal, largeImageURL, msg } = this.state;
 
     return (
-      <div className="App">
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: '1fr',
+        gridGap: '16px',
+        paddingBottom: '24px',
+      }}>
         <Searchbar onSubmit={this.hendleChangeQuery} />
         <ImageGallery
           toogleModal={this.toogleModal}

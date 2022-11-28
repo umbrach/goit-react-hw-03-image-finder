@@ -1,6 +1,7 @@
-import { Component } from 'react';
+import { Component } from "react";
 import PropTypes from 'prop-types';
-import '../styles.css';
+import s from './Modal.module.css';
+
 
 class Modal extends Component {
   componentDidMount() {
@@ -24,8 +25,8 @@ class Modal extends Component {
   };
   render() {
     return (
-      <div className="Overlay" onClick={this.handleBackdropClick}>
-        <div className="Modal">
+      <div className={s.Overlay} onClick={this.handleBackdropClick}>
+        <div className={s.Modal}>
           <img src={this.props.link} alt="" />
         </div>
       </div>
