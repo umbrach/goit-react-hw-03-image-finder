@@ -4,7 +4,7 @@ import ImageGallery from "./ImageGallery/ImageGallery";
 import Loader from "./Loader/Loader";
 import Modal from "./Modal/Modal";
 import Button from "./Button/Button";
-import {fetchImg} from './services/pixabay-api';
+import {fetchImg} from '../services/pixabay-api';
 
 class App extends Component {
   state = {
