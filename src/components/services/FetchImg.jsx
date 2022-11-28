@@ -10,4 +10,4 @@ const fetchImg = (searchQuery = '', currentPage = 1) => {
     .then(response => response.data.hits);
 };
 
-export default {fetchImg};
+export default fetchImg;
