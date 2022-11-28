@@ -1,14 +1,10 @@
 import React, { Component } from "react";
-import api from './services/FetchImg';
 import Searchbar from "./Searchbar/Searchbar";
 import ImageGallery from "./ImageGallery/ImageGallery";
 import Loader from "./Loader/Loader";
 import Modal from "./Modal/Modal";
 import Button from "./Button/Button";
-
-
-
-
+import {fetchImg} from './services/pixabay-api';
 
 class App extends Component {
   state = {
@@ -30,8 +26,8 @@ class App extends Component {
   fetchImages = () => {
     const { query, currentPage } = this.state;
     this.setState({ isLoading: true });
-    api
-      .fetchImg(query, currentPage)
+
+   fetchImg(query, currentPage)
       .then(data => {
         if (data.length > 0) {
           this.setState(({ images, currentPage }) => ({
