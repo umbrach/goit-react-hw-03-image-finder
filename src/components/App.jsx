@@ -1,5 +1,5 @@
-import { Component } from "react";
-import fetch from './services/FetchImg';
+import React, { Component } from "react";
+import api from './services/FetchImg';
 import Searchbar from "./Searchbar/Searchbar";
 import ImageGallery from "./ImageGallery/ImageGallery";
 import Loader from "./Loader/Loader";
@@ -30,7 +30,7 @@ class App extends Component {
   fetchImages = () => {
     const { query, currentPage } = this.state;
     this.setState({ isLoading: true });
-    fetch
+    api
       .fetchImg(query, currentPage)
       .then(data => {
         if (data.length > 0) {
@@ -78,12 +78,14 @@ class App extends Component {
     const { isLoading, images, showModal, largeImageURL, msg } = this.state;
 
     return (
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: '1fr',
-        gridGap: '16px',
-        paddingBottom: '24px',
-      }}>
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: '1fr',
+          gridGap: '16px',
+          paddingBottom: '24px',
+        }}
+      >
         <Searchbar onSubmit={this.hendleChangeQuery} />
         <ImageGallery
           toogleModal={this.toogleModal}
